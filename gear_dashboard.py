@@ -34,7 +34,7 @@ def find_best_change_gears(target, gears, top_n=20):
 
     results.sort(key=lambda x: x["Error"])
 
-    return pd.DataFrame(results[:top_n])
+    return pd.DataFrame(results[:top_n]).drop_duplicates().reset_index(drop=True)
 
 
 # -------------------------
@@ -62,7 +62,7 @@ if mode == "Machine Constant + Teeth":
 
     ratio = K/Z
     
-    st.success(f"Target Ratio = {ratio}") #{ratio:.6f}")
+    st.success(f"Target Ratio = {ratio:.6f}")
 
 else:
 
@@ -71,7 +71,7 @@ else:
         value=0.634920,
         format="%0.6f"
     )
-    st.success(f"Target Ratio = {ratio}") #{ratio:.6f}")
+    st.success(f"Target Ratio = {ratio:.6f}")
 
 ### Design APP 
 
