@@ -58,7 +58,7 @@ if mode == "Machine Constant + Teeth":
     Z = st.number_input("Number of Teeth", value=63)
 
     ratio = K/Z
-    st.success(f"Target Ratio = {ratio:.6f}")
+    st.success(f"Target Ratio = {ratio}") #{ratio:.6f}")
 
 else:
 
@@ -67,7 +67,7 @@ else:
         value=0.634920
     )
 
-    st.success(f"Target Ratio = {ratio:.6f}")
+    st.success(f"Target Ratio = {ratio}") #{ratio:.6f}")
 
 
 
