@@ -64,9 +64,9 @@ else:
 
     ratio = st.number_input(
         "Enter Target Ratio",
-        value=0.634920
+        value=0.634920,
+        format="%0.6f"
     )
-
     st.success(f"Target Ratio = {ratio}") #{ratio:.6f}")
 
 
