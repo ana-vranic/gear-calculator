@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 from itertools import product
+from itertools import combinations
 
 # -------------------------
 # Solver
@@ -11,13 +12,15 @@ def find_best_change_gears(target, gears, top_n=20):
     #target = K / Z
     results = []
 
-    for A, B, C, D in product(gears, repeat=4):
+    #for A, B, C, D in product(gears, repeat=4):
+    for A, B, C, D in combinations(gears, 4):
 
         # avoid divide by zero
         if B == 0 or D == 0:
             continue
 
         ratio = (A / B) * (C / D)
+        
         error = abs(ratio - target)
 
         results.append({
@@ -58,6 +61,7 @@ if mode == "Machine Constant + Teeth":
     Z = st.number_input("Number of Teeth", value=63)
 
     ratio = K/Z
+    
     st.success(f"Target Ratio = {ratio}") #{ratio:.6f}")
 
 else:
@@ -69,9 +73,7 @@ else:
     )
     st.success(f"Target Ratio = {ratio}") #{ratio:.6f}")
 
-
-
-
+### Design APP 
 
 st.subheader("Inputs")
 
